@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Λάβετε Προσφορά | Pest-Free</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css" media="(max-width: 768px)">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons.png">
+</head>
+
+<body>
+  <section class="offer-screen">
+    <h1>Λάβετε Προσφορά</h1>
+
+    <form class="offer-form" action="https://formspree.io/f/mqezgkze" method="POST">
+      <input type="hidden" name="_charset_" value="UTF-8">
+      <input type="hidden" name="_subject" value="Νέα Προσφορά από το pest-free.gr">
+      <input type="hidden" name="_next" value="https://pest-free.gr/thank-you.html">
+
+      <label>
+        Ονοματεπώνυμο
+        <input type="text" name="Ονοματεπώνυμο" required>
+      </label>
+
+      <label>
+        Τηλέφωνο
+        <input type="tel" name="Τηλέφωνο" required>
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="Email">
+      </label>
+
+      <label>
+        Κατηγορία Υπηρεσίας
+        <select name="Κατηγορία" required>
+          <option value="" disabled selected>-- Επιλέξτε Κατηγορία --</option>
+          <option value="Έντομο">Έντομο</option>
+          <option value="Τρωκτικό">Τρωκτικό</option>
+          <option value="Πιστοποίηση Καταλύματος">Πιστοποίηση Καταλύματος</option>
+          <option value="Απολύμανση">Απολύμανση</option>
+          <option value="Ειδική Επέμβαση">Ειδική Επέμβαση</option>
+          <option value="Φυτοπροστασία">Φυτοπροστασία</option>
+          <option value="Άλλο">Άλλο</option>
+        </select>
+      </label>
+
+      <label>
+        Σχόλια
+        <textarea name="Περιγραφή" rows="5" required></textarea>
+      </label>
+
+      <div class="consent-box">
+        <label>
+          <input type="checkbox" name="consent" required>
+          Δηλώνω ότι έλαβα γνώση και αποδέχομαι την 
+          <a href="privacy.html" target="_blank">Πολιτική Απορρήτου</a>
+          και συναινώ στην επεξεργασία των προσωπικών μου δεδομένων 
+          για σκοπούς επικοινωνίας.
+        </label>
+      </div>
+
+      <button type="submit">Αποστολή</button>
+    </form>
+  </section>
+</body>
+</html>

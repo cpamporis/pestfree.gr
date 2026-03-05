@@ -1,0 +1,402 @@
+/* =========================
+   MOBILE BASE
+========================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+section {
+    padding: 48px 6%;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    min-height: 60vh;
+    max-height: 75vh;
+}
+
+.hero-overlay {
+    justify-content: flex-end;     
+    padding: 0 6% 48px;            
+    align-items: flex-start;
+}
+
+.hero-brand img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.services-canva {
+    padding: 60px 6%;
+}
+
+.services-canva h2 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.services-canva h2::after {
+    content: "";
+    display: block;
+    width: 80%;
+    max-width: 90%;
+    height: 3px;
+    background-color: #1f9c8b;
+    margin: 14px auto 0;
+}
+
+.services-canva-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.services-canva-card {
+    width: 100%;
+    border-radius: 14px;
+}
+
+.services-canva-image img {
+    width: 100%;
+    height: auto;
+}
+
+.services-canva-card h3 {
+    font-size: 1.4rem;
+}
+
+.services-canva-card p,
+.services-canva-card li {
+    font-size: 1.1rem;
+}
+
+/* =========================
+   CERTIFICATES
+========================= */
+.certificates-canva-header {
+    padding: 20px 6%;
+}
+
+.certificates-canva-header h2 {
+    font-size: 1.9rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.certificates-canva-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.certificates-canva-text {
+    padding: 40px 6%;
+}
+
+.certificates-canva-text p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.certificates-canva-stamp {
+    width: 200px;
+    margin: 24px auto 0;
+    display: block;
+}
+
+.certificates-canva-image {
+    height: 240px;
+}
+
+.certificates-canva-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================
+   OFFERS
+========================= */
+.offers-canva {
+    padding: 60px 6%;
+}
+
+.offers-canva h2 {
+    font-size: 2.6rem;
+}
+
+.offers-canva-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.offers-canva-card {
+    padding: 120px 20px 12px;
+}
+
+.offers-canva-card h3 {
+    font-size: 2rem;
+}
+
+.offers-canva-card h3::after {
+    display: none;
+}
+
+.offers-canva-price {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+}
+
+.offers-canva-card p {
+    font-size: 2.4rem;
+    margin-top: 20px
+}
+
+.offers-canva-card:nth-child(2) .offers-canva-price {
+    margin-top: clamp(70px, 6vw, 40px);
+}
+
+
+
+/* =========================
+   ABOUT
+========================= */
+.about-header {
+    padding: 28px 6%;
+}
+
+.about-header h2 {
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-image {
+    min-height: 40vh;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text {
+    padding: 48px 6% 24px;
+    background: #ffffff;
+}
+
+
+.about-text p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* =========================
+   SPECIAL
+========================= */
+.special {
+    min-height: 70vh;
+     background-position: center ;
+}
+
+.special-overlay {
+    padding: 0 6%;
+}
+
+.special h2 {
+    font-size: 2rem;
+}
+
+.special h2::after {
+    display: none;
+}
+
+.special-list li {
+    font-size: 1.2rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    padding: 60px 6%;
+}
+
+.footer h4 {
+    font-size: 1.6rem;
+}
+
+.footer p,
+.footer a {
+    font-size: 1.1rem;
+}
+
+.footer-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.footer-columns > div {
+    width: 100%;
+}
+/* =========================
+   OFFER PAGE (MOBILE)
+========================= */
+.offer-screen {
+  padding: 64px 6%;
+  min-height: auto;
+}
+
+.offer-screen h1 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+/* FORM CARD */
+.offer-form {
+  background: #ffffff;
+  padding: 28px 20px 32px;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* LABELS */
+.offer-form label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #1f1f1f;
+}
+
+/* INPUTS */
+.offer-form input,
+.offer-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px 12px;
+  font-size: 16px; /* prevents iOS zoom */
+  border-radius: 10px;
+  border: 1px solid #d0d0d0;
+  background-color: #fafafa;
+}
+
+.offer-form input:focus,
+.offer-form textarea:focus {
+  outline: none;
+  border-color: #1f9c8b;
+  background-color: #ffffff;
+}
+
+.offer-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* BUTTON */
+.offer-form button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1f9c8b;
+  border: none;
+  border-radius: 12px;
+}
+
+.offer-form button:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   FOOTER - ΝΟΜΙΚΑ LINKS (MOBILE)
+========================= */
+.footer {
+    padding: 60px 6% 30px;
+}
+
+.footer-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.footer-columns > div {
+    width: 100%;
+}
+
+.footer h4 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.footer p,
+.footer a {
+    font-size: 1.1rem;
+}
+
+/* =========================
+   FOOTER LEGAL SECTION (MOBILE)
+========================= */
+.footer-legal {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid #333;
+}
+
+.legal-links {
+    display: flex;
+    flex-direction: column;  /* Σε κινητά: το ένα κάτω από το άλλο */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.legal-links a {
+    color: #1f9c8b;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.legal-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.separator {
+    display: none;  /* Κρύβουμε τις τελείες στα κινητά */
+}
+
+.copyright {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 10px 0 0;
+}
