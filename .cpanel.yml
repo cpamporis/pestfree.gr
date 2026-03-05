@@ -1,4 +1,10 @@
+---
 deployment:
   tasks:
     - export DEPLOYPATH=/home/pestfree/public_html/
-    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp offer.html $DEPLOYPATH
+    - /bin/cp privacy.html $DEPLOYPATH
+    - /bin/cp terms.html $DEPLOYPATH
