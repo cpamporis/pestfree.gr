@@ -1,5 +1,5 @@
 /* =========================
-   RESET & BASE
+   DESKTOP BASE
 ========================= */
 * {
     margin: 0;
@@ -647,6 +647,7 @@ section h2 {
     inset: 0;
     background: rgba(0, 0, 0, 0.25);
     z-index: 0;
+    pointer-events: none;
 }
 
 .offer-screen > * {
@@ -899,4 +900,146 @@ section h2 {
     outline: none;
     border-color: #1f9c8b;
     background-color: #ffffff;
+}
+
+/* =========================
+   CERTIFICATIONS
+========================= */
+
+.certifications {
+    padding: 0;
+    background: #ffffff;
+}
+
+/* HEADER (same style as ABOUT / CERTIFICATES) */
+.certifications-header {
+    background: #1f9c8b;
+    padding: 50px 8%;
+}
+
+.certifications-header h2 {
+    color: #ffffff;
+    font-size: clamp(4.4rem, 3vw, 2.6rem);
+    font-weight: 500;
+    text-align: left;
+}
+
+/* CONTENT GRID */
+.certifications-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+/* TEXT */
+.certifications-text {
+    padding: 60px 8%;
+}
+
+.certifications-text p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    max-width: 520px;
+    color: #1f1f1f;
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 60px 8%;
+    justify-items: center;
+}
+
+/* CARD */
+.cert-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cert-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.cert-card p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #1f9c8b;
+}
+
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.lang-switch button {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    margin-left: 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.back-home-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 24px;
+    background-color: #1f9c8b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.back-home-btn:hover {
+    background-color: #146b5e;
+    transform: translateY(-2px);
+}
+
+.back-home-btn:active {
+    transform: translateY(0);
+}
+
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+    pointer-events: none;  /* Allow clicks to pass through the container */
+}
+
+.lang-switch button {
+    pointer-events: auto;  /* Buttons still clickable */
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    margin-left: 6px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.lang-switch button:hover {
+    background: rgba(31, 156, 139, 0.8);
 }

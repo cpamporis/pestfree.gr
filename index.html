@@ -23,12 +23,17 @@
     </video>
 
     <div class="hero-overlay">
+        <div class="lang-switch">
+            <button id="lang-gr" onclick="setLanguage('gr')">GR</button>
+            <button id="lang-en" onclick="setLanguage('en')">EN</button>
+        </div>
+        
         <div class="hero-brand">
             <img src="assets/logo.png" alt="Απεντόμωση Σαράκι" loading="lazy">
         </div>
 
         <div class="hero-text">
-            <h1>
+            <h1 data-i18n="hero_title">
                 Τα πάντα για την<br>
                 δημόσια υγεία
             </h1>
@@ -47,7 +52,7 @@
 
 <!-- SERVICES -->
 <section class="services-canva">
-    <h2>ΑΠΕΝΤΟΜΩΣΗ - ΜΥΟΚΤΟΝΙΑ - ΕΙΔΙΚΕΣ ΕΠΕΜΒΑΣΕΙΣ</h2>
+    <h2 data-i18n="services_title">ΑΠΕΝΤΟΜΩΣΗ - ΜΥΟΚΤΟΝΙΑ - ΕΙΔΙΚΕΣ ΕΠΕΜΒΑΣΕΙΣ</h2>
 
     <div class="services-canva-cards">
 
@@ -56,8 +61,8 @@
             <div class="services-canva-image">
                 <img src="assets/sprays.jpg" alt="Απεντόμωση Χαλκιδική Θεσσαλονίκη" loading="lazy">
             </div>
-            <h3>Ιδιώτες</h3>
-            <p>
+            <h3 data-i18n="service_1_title">Ιδιώτες</h3>
+            <p data-i18n="service_1_text">
                 Βάζουμε τέλος σε όλα τα παράσιτα που εισβάλλουν στην οικία σας.
             </p>
         </div>
@@ -67,8 +72,8 @@
             <div class="services-canva-image">
                 <img src="assets/rats.jpg" alt="Αρουραίος Ποντίκια Μυοκτονία" loading="lazy">
             </div>
-            <h3>Επαγγελματίες</h3>
-            <p>
+            <h3 data-i18n="service_2_title">Επαγγελματίες</h3>
+            <p data-i18n="service_2_text">
                 Υπηρεσίες συνοδευόμενες από όλα τα απαραίτητα έγγραφα,
                 σύμφωνα με τα πρότυπα ΕΦΕΤ - HACCP.
             </p>
@@ -79,8 +84,8 @@
             <div class="services-canva-image">
                 <img src="assets/fogger.jpg" alt="Κουνούπια Κοριός" loading="lazy">
             </div>
-            <h3>Ειδικές Επεμβάσεις</h3>
-            <ul>
+            <h3 data-i18n="service_3_title">Ειδικές Επεμβάσεις</h3>
+            <ul data-i18n-list="service_3_list">
                 <li>Σκαθάρι του φοίνικα</li>
                 <li>Σκουλήκι του γκαζόν</li>
                 <li>Απολυμάνσεις</li>
@@ -97,7 +102,7 @@
 
     <!-- Top Bar -->
     <div class="certificates-canva-header">
-        <h2>ΠΙΣΤΟΠΟΙΗΤΙΚΑ ΑΠΕΝΤΟΜΩΣΗΣ - ΜΥΟΚΤΟΝΙΑΣ</h2>
+        <h2 data-i18n="certificates_title">ΠΙΣΤΟΠΟΙΗΤΙΚΑ ΑΠΕΝΤΟΜΩΣΗΣ - ΜΥΟΚΤΟΝΙΑΣ</h2>
     </div>
 
     <!-- Content -->
@@ -105,7 +110,7 @@
 
         <!-- Text -->
         <div class="certificates-canva-text">
-            <p>
+            <p data-i18n="certificates_text">
                 Εκδίδουμε πιστοποιητικά απεντόμωσης - μυοκτονίας για
                 βιομηχανικές μονάδες, ξενοδοχεία, επιχειρήσεις εστίασης,
                 πρωτογενούς παραγωγής, αναψυκτήρια και καταλύματα
@@ -134,36 +139,36 @@
 <!-- OFFERS – CANVA STYLE -->
 <section class="offers-canva">
 
-    <h2>ΠΡΟΣΦΟΡΕΣ</h2>
+    <h2 data-i18n="offers_title">ΠΡΟΣΦΟΡΕΣ</h2>
 
     <div class="offers-canva-cards">
 
         <div class="offers-canva-card">
-            <h3>Απεντόμωση <br> Διαμερίσματος</h3>
-            <p class="offers-canva-price">από 30€ + ΦΠΑ</p>
-            <p>Χρήση ακίνδυνων σκευασμάτων για ανθρώπους και κατοικίδια</p>
+            <h3 data-i18n="offer_1_title">Απεντόμωση <br> Διαμερίσματος</h3>
+            <p class="offers-canva-price" data-i18n="offer_1_price">από 30€ + ΦΠΑ</p>
+            <p data-i18n="offer_1_line1">Χρήση ακίνδυνων σκευασμάτων για ανθρώπους και κατοικίδια</p>
             <br><br>
-            <p>Χωρίς να απομακρύνεστε από <br>την οικεία σας</p>
+            <p data-i18n="offer_1_line2">Χωρίς να απομακρύνεστε από <br>την οικεία σας</p>
             <br><br>
-            <p>Λύση στο πρόβλημα σας</p>
+            <p data-i18n="offer_1_line3">Λύση στο πρόβλημα σας</p>
         </div>
 
         <div class="offers-canva-card">
-            <h3>Απεντόμωση & Μυοκτονία Πολυκατοικίας</h3>
-            <p class="offers-canva-price">από 45€ + ΦΠΑ</p>
-            <p>Χρήση ακίνδυνων σκευασμάτων <br>για ανθρώπους και κατοικίδια</p>
+            <h3 data-i18n="offer_2_title">Απεντόμωση & Μυοκτονία Πολυκατοικίας</h3>
+            <p class="offers-canva-price" data-i18n="offer_2_price">από 45€ + ΦΠΑ</p>
+            <p data-i18n="offer_2_line1">Χρήση ακίνδυνων σκευασμάτων <br>για ανθρώπους και κατοικίδια</p>
             <br><br><br>
-            <p>Tαυτόχρονη απεντόμωση διαμερίσματος από <br> 20€ + ΦΠΑ</p>
+            <p data-i18n="offer_2_line2">Tαυτόχρονη απεντόμωση διαμερίσματος από <br> 20€ + ΦΠΑ</p>
         </div>
 
         <div class="offers-canva-card">
-            <h3>Πιστοποιητικά για <br> Airbnb</h3>
-            <p class="offers-canva-price">από 35€ + ΦΠΑ</p>
-            <p>Χρήση ακίνδυνων σκευασμάτων <br>για ανθρώπους και κατοικίδια</p>
+            <h3 data-i18n="offer_3_title">Πιστοποιητικά για <br> Airbnb</h3>
+            <p class="offers-canva-price" data-i18n="offer_3_price">από 50€ + ΦΠΑ</p>
+            <p data-i18n="offer_3_line1">Χρήση ακίνδυνων σκευασμάτων <br>για ανθρώπους και κατοικίδια</p>
             <br><br>
-            <p>Παρέχονται όλα τα νόμιμα <br>έγγραφα για το ακίνητο σας</p>
+            <p data-i18n="offer_3_line2">Παρέχονται όλα τα νόμιμα <br>έγγραφα για το ακίνητο σας</p>
             <br><br>
-            <p>Προσφορές για ιδιοκτήτες <br>πολλαπλών ακίνητων</p>
+            <p data-i18n="offer_3_line3">Προσφορές για ιδιοκτήτες <br>πολλαπλών ακίνητων</p>
         </div>
 
     </div>
@@ -174,7 +179,7 @@
 <section class="about">
     <!-- Top Bar -->
     <div class="about-header">
-        <h2>Ποιοί Είμαστε</h2>
+        <h2 data-i18n="about_title">Ποιοί Είμαστε</h2>
     </div>
 
     <!-- Content -->
@@ -187,7 +192,7 @@
 
         <!-- Text -->
         <div class="about-text">
-            <p>
+            <p data-i18n="about_text">
                 Το τμήμα δημόσιας υγείας Pest - Free,
                 ιδρύθηκε το 2024 από τον Νέστορα Χ. Παμπόρη,
                 πτυχιούχο γεωπόνο του ΑΠΘ. Η επιχείρηση έχει έδρα
@@ -200,12 +205,70 @@
     </div>
 </section>
 
+<!-- CERTIFICATIONS -->
+<section class="certifications">
+
+    <!-- Header -->
+    <div class="certifications-header">
+        <h2 data-i18n="certifications_title">ΟΙ ΠΙΣΤΟΠΟΙΗΣΕΙΣ ΜΑΣ</h2>
+    </div>
+
+    <!-- Content -->
+    <div class="certifications-content">
+
+        <!-- TEXT -->
+        <div class="certifications-text">
+            <p data-i18n="certifications_text_1">
+                Η Pest-Free λειτουργεί με βάση διεθνή πρότυπα ποιότητας,
+                ασφάλειας και περιβαλλοντικής ευθύνης. Οι πιστοποιήσεις μας
+                διασφαλίζουν ότι κάθε εφαρμογή πραγματοποιείται με αυστηρά
+                ελεγχόμενες διαδικασίες και σύγχρονες μεθόδους.
+            </p>
+
+            <p data-i18n="certifications_text_2">
+                Μέσα από τα πρότυπα ISO 9001:2015, ISO 14001:2015 και ISO 45001:2018,
+                εγγυόμαστε υψηλό επίπεδο υπηρεσιών, προστασία του
+                περιβάλλοντος και ασφάλεια για ανθρώπους και χώρους.
+                Παράλληλα, η πιστοποίηση EN 16636 (CEPA) επιβεβαιώνει
+                την εξειδίκευση μας στον επαγγελματικό έλεγχο παρασίτων
+                σύμφωνα με τα ευρωπαϊκά standards.
+            </p>
+        </div>
+
+        <!-- CERTIFICATES GRID -->
+        <div class="certifications-grid">
+
+            <div class="cert-card">
+                <img src="assets/9001.jpg" alt="ISO 9001:2015">
+                <p data-i18n="cert_card_9001">ISO 9001:2015</p>
+            </div>
+
+            <div class="cert-card">
+                <img src="assets/14001.jpg" alt="ISO 14001:2015">
+                <p data-i18n="cert_card_14001">ISO 14001:2015</p>
+            </div>
+
+            <div class="cert-card">
+                <img src="assets/45001.jpg" alt="ISO 45001:2018">
+                <p data-i18n="cert_card_45001">ISO 45001:2018</p>
+            </div>
+
+            <div class="cert-card">
+                <img src="assets/cepa.jpg" alt="EN 16636 CEPA">
+                <p data-i18n="cert_card_cepa">EN 16636 (CEPA)</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 <!-- SPECIAL SERVICES -->
 <section class="special">
     <div class="special-overlay">
-        <h2>ΕΙΔΙΚΕΣ ΕΠΕΜΒΑΣΕΙΣ</h2>
+        <h2 data-i18n="special_title">ΕΙΔΙΚΕΣ ΕΠΕΜΒΑΣΕΙΣ</h2>
 
-        <ul class="special-list">
+        <ul class="special-list" data-i18n-list="special_list">
             <li>Αποκλεισμός παρασίτων</li>
             <li>Απομάκρυνση παρασίτων</li>
             <li>Φυτοπροστασία</li>
@@ -220,7 +283,7 @@
 <footer class="footer">
     <div class="footer-columns">
         <div class="footer-social">
-            <h4>Βρείτε Μας</h4>
+            <h4 data-i18n="footer_find_us">Βρείτε Μας</h4>
 
             <p>
                 <a href="https://wa.me/306986244371" target="_blank" rel="noopener">
@@ -239,11 +302,11 @@
                     Instagram
                 </a>
             </p>
-</div>
+        </div>
 
 
         <div>
-            <h4>Έδρα Θεσσαλονίκης</h4>
+            <h4 data-i18n="footer_thessaloniki">Έδρα Θεσσαλονίκης</h4>
             <p>
                 <a href="https://maps.app.goo.gl/URLeUbvqU1jSQ2M37" target="_blank" rel="noopener">
                     Κουντουριώτου 10,<br>Νέα Κρήνη
@@ -253,7 +316,7 @@
         </div>
 
         <div>
-            <h4>Έδρα Χαλκιδικής</h4>
+            <h4 data-i18n="footer_chalkidiki">Έδρα Χαλκιδικής</h4>
             <p>
                 <a href="https://maps.app.goo.gl/p6nWnLzg1obPAwUD6" target="_blank" rel="noopener">
                     Νικήτη Χαλκιδικής <br> Έναντι ΣΜ Μασούτης
@@ -263,14 +326,14 @@
         </div>
 
         <div>
-            <h4>Email</h4>
+            <h4 data-i18n="footer_email">Email</h4>
             <p>
                 <a href="mailto:info@pest-free.gr">info@pest-free.gr</a>
             </p>
         </div>
 
         <div>
-            <h4>Τηλέφωνο</h4>
+            <h4 data-i18n="footer_phone">Τηλέφωνο</h4>
             <p>
                 <a href="tel:+306986244371">+30 6986244371</a>
             </p>
@@ -278,20 +341,19 @@
     </div>
     
     <div class="footer-legal">
-            <!-- Τα links σε μία γραμμή -->
             <div class="legal-links">
-                <a href="privacy.html">Πολιτική Απορρήτου</a>
+                <a href="privacy.html" data-i18n="footer_privacy">Πολιτική Απορρήτου</a>
                 <span class="separator">•</span>
-                <a href="terms.html">Όροι & Προϋποθέσεις</a>
+                <a href="terms.html" data-i18n="footer_terms">Όροι & Προϋποθέσεις</a>
             </div>
-            <!-- Copyright -->
-            <p class="copyright">© 2026 Pest-Free | All rights reserved</p>
+            <p class="copyright" data-i18n="footer_copyright">© 2026 Pest-Free | All rights reserved</p>
         </div>
 </footer>
 
-<a href="offer.html" class="floating-offer-btn">
+<a href="offer.html" class="floating-offer-btn" data-i18n="floating_btn">
     Λάβετε Προσφορά
 </a>
 
+<script src="js/i18n.js"></script>
 </body>
 </html>

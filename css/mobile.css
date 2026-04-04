@@ -400,3 +400,101 @@ section {
     font-size: 0.9rem;
     margin: 10px 0 0;
 }
+
+/* =========================
+   CERTIFICATIONS MOBILE
+========================= */
+
+.certifications-header {
+    padding: 30px 6%;
+}
+
+.certifications-header h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.certifications-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.certifications-text {
+    padding: 40px 6%;
+}
+
+.certifications-text p {
+    font-size: 1.2rem;
+}
+
+.certifications-grid {
+    grid-template-columns: 1fr;
+    padding: 40px 6%;
+}
+
+.cert-card {
+    width: 100%;
+}
+
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.lang-switch button {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    margin-left: 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.back-home-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 24px;
+    background-color: #1f9c8b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.back-home-btn:hover {
+    background-color: #146b5e;
+    transform: translateY(-2px);
+}
+
+.back-home-btn:active {
+    transform: translateY(0);
+}
+
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+    pointer-events: none;  /* Allow clicks to pass through the container */
+}
+
+.lang-switch button {
+    pointer-events: auto;  /* Buttons still clickable */
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    margin-left: 6px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.lang-switch button:hover {
+    background: rgba(31, 156, 139, 0.8);
+}
