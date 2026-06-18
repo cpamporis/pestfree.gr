@@ -3,3 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/pestfree/public_html/
     - /bin/rsync -av --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='.well-known' --exclude='cgi-bin' ./ $DEPLOYPATH
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
