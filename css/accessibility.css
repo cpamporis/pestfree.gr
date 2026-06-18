@@ -1,0 +1,1426 @@
+/* =========================
+   PEST-FREE ACCESSIBILITY WIDGET
+   Works with GR/EN i18n site
+========================= */
+:root {
+    --pf-a11y-blue: #003b7a;
+    --pf-a11y-blue-dark: #002b5c;
+    --pf-a11y-green: #1f9c8b;
+    --pf-a11y-bg: #eef1f5;
+    --pf-a11y-card: #ffffff;
+    --pf-a11y-text: #1f1f1f;
+}
+.pf-a11y-widget,
+.pf-a11y-widget * {
+    box-sizing: border-box;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.pf-a11y-float {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 2147483600;
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    border: 3px solid #ffffff;
+    background: var(--pf-a11y-green);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pf-a11y-float span {
+    font-size: 31px;
+    line-height: 1;
+}
+
+.pf-a11y-float:hover,
+.pf-a11y-float:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.36);
+    outline: 4px solid rgba(31, 156, 139, 0.35);
+    outline-offset: 3px;
+}
+
+.pf-a11y-float.pf-a11y-right {
+    left: auto;
+    right: 24px;
+    bottom: 96px;
+}
+
+.pf-a11y-panel {
+    position: fixed;
+    left: 18px;
+    bottom: 96px;
+    z-index: 2147483601;
+    width: min(628px, calc(100vw - 36px));
+    max-height: min(780px, calc(100vh - 120px));
+    overflow: auto;
+    background: var(--pf-a11y-bg);
+    color: var(--pf-a11y-text);
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+    display: none;
+}
+
+.pf-a11y-panel.is-open {
+    display: block;
+}
+
+.pf-a11y-panel.pf-a11y-right {
+    left: auto;
+    right: 18px;
+    bottom: 168px;
+}
+
+.pf-a11y-header {
+    min-height: 70px;
+    padding: 0 18px 0 28px;
+    background: var(--pf-a11y-blue);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.pf-a11y-header strong {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.pf-a11y-close {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    background: transparent;
+    color: #ffffff;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pf-a11y-body {
+    padding: 14px;
+}
+
+.pf-a11y-language {
+    border-bottom: 1px solid #c8d0dc;
+    padding: 10px 4px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.pf-a11y-language span {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: #1155ff;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.pf-a11y-language strong {
+    flex: 1;
+    font-size: 1rem;
+}
+
+.pf-a11y-language em {
+    width: 56px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--pf-a11y-blue);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.pf-a11y-section {
+    padding: 14px 0;
+    border-bottom: 1px solid #c8d0dc;
+}
+
+.pf-a11y-section summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 4px;
+}
+
+.pf-a11y-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.pf-a11y-profile-grid button,
+.pf-a11y-tools-grid button,
+.pf-a11y-row button {
+    border: 2px solid transparent;
+    background: var(--pf-a11y-card);
+    color: var(--pf-a11y-text);
+    cursor: pointer;
+}
+
+.pf-a11y-profile-grid button {
+    min-height: 70px;
+    border-radius: 12px;
+    padding: 13px 14px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pf-a11y-profile-grid button span {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: #edf0f5;
+    color: #111111;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex: 0 0 auto;
+}
+
+.pf-a11y-profile-grid button.is-active,
+.pf-a11y-tools-grid button.is-active,
+.pf-a11y-row button.is-active {
+    border-color: var(--pf-a11y-blue);
+    box-shadow: inset 0 0 0 2px rgba(0, 59, 122, 0.15);
+}
+
+.pf-a11y-toolbar-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 8px;
+    color: #31343b;
+}
+
+.pf-a11y-toolbar-title span {
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+}
+
+.pf-a11y-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.pf-a11y-tools-grid button {
+    min-height: 142px;
+    border-radius: 12px;
+    padding: 16px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    text-align: center;
+}
+
+.pf-a11y-tools-grid button span {
+    font-size: 2rem;
+    line-height: 1;
+    color: #000000;
+}
+
+.pf-a11y-tools-grid button strong {
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.pf-a11y-tools-grid button small {
+    min-height: 16px;
+    color: var(--pf-a11y-blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.pf-a11y-reset {
+    width: 100%;
+    margin-top: 16px;
+    padding: 16px 18px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--pf-a11y-blue);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pf-a11y-manage p {
+    margin: 14px 4px 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.pf-a11y-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.pf-a11y-row button {
+    flex: 1 1 120px;
+    min-height: 46px;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-weight: 700;
+}
+
+.pf-a11y-hide-row button {
+    flex-basis: 170px;
+}
+
+/* =========================
+   ACCESSIBILITY EFFECTS
+========================= */
+html.pf-a11y-text-1 {
+    font-size: 112.5%;
+}
+
+html.pf-a11y-text-2 {
+    font-size: 125%;
+}
+
+html.pf-a11y-text-3 {
+    font-size: 140%;
+}
+
+html.pf-a11y-contrast body {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+html.pf-a11y-contrast body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.pf-a11y-contrast a:not(.pf-a11y-widget a) {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+}
+
+html.pf-a11y-contrast img:not(.pf-a11y-widget img),
+html.pf-a11y-contrast video,
+html.pf-a11y-contrast svg:not(.pf-a11y-widget svg) {
+    filter: grayscale(1) contrast(1.25) !important;
+}
+
+html.pf-a11y-smart-contrast body {
+    background: #ffffff !important;
+    color: #111111 !important;
+}
+
+html.pf-a11y-smart-contrast section:not(.pf-a11y-widget),
+html.pf-a11y-smart-contrast footer:not(.pf-a11y-widget),
+html.pf-a11y-smart-contrast .services-canva,
+html.pf-a11y-smart-contrast .offers-canva-card,
+html.pf-a11y-smart-contrast .about-text,
+html.pf-a11y-smart-contrast .certificates-canva-text,
+html.pf-a11y-smart-contrast .certifications-text,
+html.pf-a11y-smart-contrast .cert-card,
+html.pf-a11y-smart-contrast .privacy-page,
+html.pf-a11y-smart-contrast .terms-page,
+html.pf-a11y-smart-contrast .offer-form {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+html.pf-a11y-smart-contrast body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    text-shadow: none !important;
+}
+
+html.pf-a11y-smart-contrast a:not(.pf-a11y-widget a) {
+    color: #003b7a !important;
+    text-decoration: underline !important;
+    font-weight: 700 !important;
+}
+
+html.pf-a11y-smart-contrast .hero-text h1,
+html.pf-a11y-smart-contrast .special h2,
+html.pf-a11y-smart-contrast .special-list li,
+html.pf-a11y-smart-contrast .offers-canva-card h3,
+html.pf-a11y-smart-contrast .offers-canva-card p {
+    background: rgba(255, 255, 255, 0.88) !important;
+    color: #000000 !important;
+}
+
+html.pf-a11y-highlight-links a:not(.pf-a11y-widget a) {
+    background: #ffdf00 !important;
+    color: #000000 !important;
+    outline: 3px solid #000000 !important;
+    outline-offset: 2px !important;
+    text-decoration: underline !important;
+    font-weight: 800 !important;
+}
+
+html.pf-a11y-text-spacing body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    letter-spacing: 0.08em !important;
+    word-spacing: 0.16em !important;
+}
+
+html.pf-a11y-stop-animations *,
+html.pf-a11y-stop-animations *::before,
+html.pf-a11y-stop-animations *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+
+html.pf-a11y-hide-images img:not(.pf-a11y-widget img),
+html.pf-a11y-hide-images picture,
+html.pf-a11y-hide-images video,
+html.pf-a11y-hide-images svg:not(.pf-a11y-widget svg) {
+    visibility: hidden !important;
+}
+
+html.pf-a11y-hide-images .hero,
+html.pf-a11y-hide-images .offers-canva,
+html.pf-a11y-hide-images .special,
+html.pf-a11y-hide-images .offer-screen,
+html.pf-a11y-hide-images [style*="background-image"]:not(.pf-a11y-widget) {
+    background-image: none !important;
+}
+
+html.pf-a11y-dyslexia-font body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    font-family: "Trebuchet MS", Verdana, Arial, sans-serif !important;
+}
+
+html.pf-a11y-readable-font body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    font-family: Arial, Verdana, sans-serif !important;
+    font-weight: 500 !important;
+}
+
+html.pf-a11y-big-cursor,
+html.pf-a11y-big-cursor body,
+html.pf-a11y-big-cursor body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M6 3 L38 28 L24 31 L31 45 L22 48 L15 34 L6 43 Z' fill='white' stroke='black' stroke-width='3'/%3E%3C/svg%3E") 4 4, auto !important;
+}
+
+html.pf-a11y-line-height body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    line-height: 1.9 !important;
+}
+
+html.pf-a11y-align-left body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    text-align: left !important;
+}
+
+html.pf-a11y-saturation-low body > *:not(.pf-a11y-widget) {
+    filter: saturate(35%) !important;
+}
+
+html.pf-a11y-saturation-high body > *:not(.pf-a11y-widget) {
+    filter: saturate(185%) !important;
+}
+
+body :focus-visible:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+    outline: 4px solid #ffbf00 !important;
+    outline-offset: 3px !important;
+}
+
+/* Reading guide/mask */
+.pf-a11y-reading-guide,
+.pf-a11y-reading-mask {
+    pointer-events: none;
+    position: fixed;
+    z-index: 2147483590;
+    display: none;
+}
+
+.pf-a11y-reading-guide {
+    left: 0;
+    width: 100vw;
+    height: 5px;
+    background: #003b7a;
+    box-shadow: 0 0 0 2px #ffffff, 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.pf-a11y-reading-mask {
+    inset: 0;
+    --pf-mask-y: 50vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.62) 0,
+        rgba(0, 0, 0, 0.62) calc(var(--pf-mask-y) - 56px),
+        rgba(0, 0, 0, 0) calc(var(--pf-mask-y) - 56px),
+        rgba(0, 0, 0, 0) calc(var(--pf-mask-y) + 56px),
+        rgba(0, 0, 0, 0.62) calc(var(--pf-mask-y) + 56px),
+        rgba(0, 0, 0, 0.62) 100%
+    );
+}
+
+html.pf-a11y-reading-guide-on .pf-a11y-reading-guide,
+html.pf-a11y-reading-mask-on .pf-a11y-reading-mask {
+    display: block;
+}
+
+/* Tooltips */
+.pf-a11y-tooltip {
+    position: fixed;
+    z-index: 2147483595;
+    display: none;
+    max-width: min(360px, calc(100vw - 24px));
+    background: #111111;
+    color: #ffffff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
+
+html.pf-a11y-tooltips .pf-a11y-tooltip.is-visible {
+    display: block;
+}
+
+/* Page structure modal */
+.pf-a11y-structure-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483602;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.pf-a11y-structure-dialog {
+    width: min(620px, 100%);
+    max-height: min(720px, 90vh);
+    overflow: auto;
+    background: #ffffff;
+    color: #1f1f1f;
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+.pf-a11y-structure-head {
+    padding: 16px 18px;
+    background: var(--pf-a11y-blue);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pf-a11y-structure-head button {
+    width: 38px;
+    height: 38px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pf-a11y-structure-list {
+    padding: 14px;
+}
+
+.pf-a11y-structure-list button {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d8dbe2;
+    background: #ffffff;
+    color: #111111;
+    text-align: left;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.pf-a11y-structure-list button span {
+    display: inline-block;
+    min-width: 42px;
+    margin-right: 8px;
+    color: var(--pf-a11y-blue);
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .pf-a11y-panel,
+    .pf-a11y-panel.pf-a11y-right {
+        left: 8px;
+        right: 8px;
+        bottom: 92px;
+        width: auto;
+        max-height: calc(100vh - 112px);
+    }
+
+    .pf-a11y-tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .pf-a11y-tools-grid button {
+        min-height: 124px;
+    }
+
+    .pf-a11y-profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-a11y-float {
+        left: 16px;
+        bottom: 18px;
+    }
+
+    .pf-a11y-float.pf-a11y-right {
+        right: 16px;
+        bottom: 158px;
+    }
+
+    /* =========================
+   A11Y MULTI-LEVEL CONTROLS UPDATE
+    ========================= */
+
+    /* XL widget toggle */
+    .pf-a11y-toolbar-title {
+        width: 100%;
+        border: 2px solid transparent;
+        border-radius: 12px;
+        background: transparent;
+        cursor: pointer;
+        justify-content: flex-start;
+    }
+
+    .pf-a11y-toolbar-title small {
+        margin-left: auto;
+        color: var(--pf-a11y-blue);
+        font-size: 0.8rem;
+        font-weight: 800;
+    }
+
+    .pf-a11y-toolbar-title.is-active {
+        background: #ffffff;
+        border-color: var(--pf-a11y-blue);
+        box-shadow: inset 0 0 0 2px rgba(0, 59, 122, 0.15);
+    }
+
+    .pf-a11y-panel.pf-a11y-xl {
+        width: min(820px, calc(100vw - 36px));
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-header {
+        min-height: 88px;
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-header strong {
+        font-size: 1.45rem;
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-body {
+        padding: 20px;
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-profile-grid button {
+        min-height: 92px;
+        font-size: 1.2rem;
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button {
+        min-height: 180px;
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button span {
+        font-size: 2.7rem;
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button strong {
+        font-size: 1.22rem;
+    }
+
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-row button,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-reset {
+        min-height: 60px;
+        font-size: 1.15rem;
+    }
+
+    /* Contrast modes */
+    html.pf-a11y-invert-colors body > *:not(.pf-a11y-widget) {
+        filter: invert(1) hue-rotate(180deg) !important;
+    }
+
+    html.pf-a11y-dark-contrast body {
+        background: #000000 !important;
+        color: #ffffff !important;
+    }
+
+    html.pf-a11y-dark-contrast body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    html.pf-a11y-dark-contrast a:not(.pf-a11y-widget a) {
+        color: #ffff00 !important;
+        text-decoration: underline !important;
+    }
+
+    html.pf-a11y-light-contrast body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    html.pf-a11y-light-contrast body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-color: #000000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    html.pf-a11y-light-contrast a:not(.pf-a11y-widget a) {
+        color: #003b7a !important;
+        text-decoration: underline !important;
+        font-weight: 800 !important;
+    }
+
+    /* Text spacing levels */
+    html.pf-a11y-text-spacing-1 body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        letter-spacing: 0.04em !important;
+        word-spacing: 0.08em !important;
+    }
+
+    html.pf-a11y-text-spacing-2 body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        letter-spacing: 0.08em !important;
+        word-spacing: 0.16em !important;
+    }
+
+    html.pf-a11y-text-spacing-3 body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        letter-spacing: 0.12em !important;
+        word-spacing: 0.24em !important;
+    }
+
+    /* Line height levels */
+    html.pf-a11y-line-height-1 body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        line-height: 1.5 !important;
+    }
+
+    html.pf-a11y-line-height-2 body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        line-height: 1.75 !important;
+    }
+
+    html.pf-a11y-line-height-3 body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        line-height: 2 !important;
+    }
+
+    /* Text alignment modes */
+    html.pf-a11y-align-left body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        text-align: left !important;
+    }
+
+    html.pf-a11y-align-right body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        text-align: right !important;
+    }
+
+    html.pf-a11y-align-center body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        text-align: center !important;
+    }
+
+    html.pf-a11y-align-justify body *:not(.pf-a11y-widget):not(.pf-a11y-widget *) {
+        text-align: justify !important;
+    }
+
+    /* Saturation modes */
+    html.pf-a11y-saturation-low body > *:not(.pf-a11y-widget) {
+        filter: saturate(35%) !important;
+    }
+
+    html.pf-a11y-saturation-high body > *:not(.pf-a11y-widget) {
+        filter: saturate(185%) !important;
+    }
+
+    html.pf-a11y-saturation-desaturated body > *:not(.pf-a11y-widget) {
+        filter: grayscale(1) !important;
+    }
+
+    @media (max-width: 768px) {
+        .pf-a11y-panel.pf-a11y-xl,
+        .pf-a11y-panel.pf-a11y-xl.pf-a11y-right {
+            width: auto;
+            left: 8px;
+            right: 8px;
+        }
+
+        .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button {
+            min-height: 150px;
+        }
+    }
+
+    /* =========================
+    A11Y BUGFIX - STRONG EFFECT SELECTORS
+    Put this at the very end of accessibility.css
+    ========================= */
+
+    /* Safer target: everything except the accessibility widget */
+    html.pf-a11y-invert-colors body > :not(.pf-a11y-widget) {
+        filter: invert(1) hue-rotate(180deg) !important;
+    }
+
+    html.pf-a11y-dark-contrast body {
+        background: #000000 !important;
+        color: #ffffff !important;
+    }
+
+    html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget),
+    html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) * {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) a {
+        color: #ffff00 !important;
+        text-decoration: underline !important;
+        font-weight: 800 !important;
+    }
+
+    html.pf-a11y-light-contrast body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    html.pf-a11y-light-contrast body > :not(.pf-a11y-widget),
+    html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) * {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-color: #000000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) a {
+        color: #003b7a !important;
+        text-decoration: underline !important;
+        font-weight: 800 !important;
+    }
+
+    /* Text spacing levels */
+    html.pf-a11y-text-spacing-1 body > :not(.pf-a11y-widget),
+    html.pf-a11y-text-spacing-1 body > :not(.pf-a11y-widget) * {
+        letter-spacing: 0.04em !important;
+        word-spacing: 0.08em !important;
+    }
+
+    html.pf-a11y-text-spacing-2 body > :not(.pf-a11y-widget),
+    html.pf-a11y-text-spacing-2 body > :not(.pf-a11y-widget) * {
+        letter-spacing: 0.08em !important;
+        word-spacing: 0.16em !important;
+    }
+
+    html.pf-a11y-text-spacing-3 body > :not(.pf-a11y-widget),
+    html.pf-a11y-text-spacing-3 body > :not(.pf-a11y-widget) * {
+        letter-spacing: 0.12em !important;
+        word-spacing: 0.24em !important;
+    }
+
+    /* Line height levels */
+    html.pf-a11y-line-height-1 body > :not(.pf-a11y-widget),
+    html.pf-a11y-line-height-1 body > :not(.pf-a11y-widget) * {
+        line-height: 1.5 !important;
+    }
+
+    html.pf-a11y-line-height-2 body > :not(.pf-a11y-widget),
+    html.pf-a11y-line-height-2 body > :not(.pf-a11y-widget) * {
+        line-height: 1.75 !important;
+    }
+
+    html.pf-a11y-line-height-3 body > :not(.pf-a11y-widget),
+    html.pf-a11y-line-height-3 body > :not(.pf-a11y-widget) * {
+        line-height: 2 !important;
+    }
+
+    /* Text alignment modes */
+    html.pf-a11y-align-left body > :not(.pf-a11y-widget),
+    html.pf-a11y-align-left body > :not(.pf-a11y-widget) * {
+        text-align: left !important;
+    }
+
+    html.pf-a11y-align-right body > :not(.pf-a11y-widget),
+    html.pf-a11y-align-right body > :not(.pf-a11y-widget) * {
+        text-align: right !important;
+    }
+
+    html.pf-a11y-align-center body > :not(.pf-a11y-widget),
+    html.pf-a11y-align-center body > :not(.pf-a11y-widget) * {
+        text-align: center !important;
+    }
+
+    html.pf-a11y-align-justify body > :not(.pf-a11y-widget),
+    html.pf-a11y-align-justify body > :not(.pf-a11y-widget) * {
+        text-align: justify !important;
+    }
+
+    /* Saturation modes */
+    html.pf-a11y-saturation-low body > :not(.pf-a11y-widget) {
+        filter: saturate(35%) !important;
+    }
+
+    html.pf-a11y-saturation-high body > :not(.pf-a11y-widget) {
+        filter: saturate(185%) !important;
+    }
+
+    html.pf-a11y-saturation-desaturated body > :not(.pf-a11y-widget) {
+        filter: grayscale(1) saturate(0%) !important;
+    }
+
+    /* XL widget - root class support */
+    html.pf-a11y-xl-widget .pf-a11y-panel,
+    .pf-a11y-panel.pf-a11y-xl {
+        width: min(880px, calc(100vw - 36px)) !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-header,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-header {
+        min-height: 92px !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-header strong,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-header strong {
+        font-size: 1.5rem !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-body,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-body {
+        padding: 22px !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-profile-grid button,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-profile-grid button {
+        min-height: 96px !important;
+        font-size: 1.25rem !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-tools-grid button,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button {
+        min-height: 188px !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-tools-grid button span,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button span {
+        font-size: 2.9rem !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-tools-grid button strong,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button strong {
+        font-size: 1.28rem !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-tools-grid button small,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button small {
+        font-size: 0.95rem !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-row button,
+    html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-reset,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-row button,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-reset {
+        min-height: 62px !important;
+        font-size: 1.18rem !important;
+    }
+
+    @media (max-width: 768px) {
+        html.pf-a11y-xl-widget .pf-a11y-panel,
+        .pf-a11y-panel.pf-a11y-xl {
+            left: 8px !important;
+            right: 8px !important;
+            width: auto !important;
+        }
+
+        html.pf-a11y-xl-widget .pf-a11y-panel .pf-a11y-tools-grid button,
+        .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button {
+            min-height: 154px !important;
+        }
+    }
+}
+
+
+/* =========================================================
+   A11Y FINAL FIXES — DESKTOP + MOBILE
+   Place at the very end of accessibility.css
+   Fixes:
+   - XL widget/menu = 100% larger
+   - contrast modes
+   - text spacing levels
+   - line-height levels
+   - text alignment levels
+   - fully desaturated mode
+========================================================= */
+
+/* Keep filter modes composable */
+:root {
+    --pf-a11y-filter-contrast: ;
+    --pf-a11y-filter-saturation: ;
+}
+
+/* Make the XL toggle look/behave like the other controls on all screens */
+.pf-a11y-toolbar-title {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+
+.pf-a11y-toolbar-title small {
+    margin-left: auto;
+    color: var(--pf-a11y-blue);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.pf-a11y-toolbar-title.is-active {
+    background: #ffffff;
+    border-color: var(--pf-a11y-blue);
+    box-shadow: inset 0 0 0 2px rgba(0, 59, 122, 0.15);
+}
+
+/* =========================
+   1. XL WIDGET — +100%
+========================= */
+html.pf-a11y-xl-widget .pf-a11y-float {
+    width: 120px !important;
+    height: 120px !important;
+    border-width: 6px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-float span {
+    font-size: 62px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-panel,
+.pf-a11y-panel.pf-a11y-xl {
+    width: min(1256px, calc(100vw - 36px)) !important;
+    max-height: min(92vh, calc(100vh - 40px)) !important;
+    border-radius: 28px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-panel:not(.pf-a11y-right),
+.pf-a11y-panel.pf-a11y-xl:not(.pf-a11y-right) {
+    left: 18px !important;
+    right: auto !important;
+    bottom: 156px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-panel.pf-a11y-right,
+.pf-a11y-panel.pf-a11y-xl.pf-a11y-right {
+    right: 18px !important;
+    left: auto !important;
+    bottom: 228px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-header,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-header {
+    min-height: 140px !important;
+    padding: 0 36px 0 56px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-header strong,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-header strong {
+    font-size: 2.3rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-close,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-close {
+    width: 88px !important;
+    height: 88px !important;
+    font-size: 68px !important;
+    border-width: 4px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-body,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-body {
+    padding: 28px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-language,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-language {
+    gap: 28px !important;
+    padding: 20px 8px 32px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-language span,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-language span {
+    width: 84px !important;
+    height: 84px !important;
+    font-size: 2rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-language strong,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-language strong {
+    font-size: 2rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-language em,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-language em {
+    width: 112px !important;
+    height: 64px !important;
+    font-size: 2rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-section,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-section {
+    padding: 28px 0 !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-section summary,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-section summary {
+    font-size: 2rem !important;
+    padding: 16px 8px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-profile-grid,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-profile-grid {
+    gap: 28px !important;
+    margin-top: 20px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-profile-grid button,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-profile-grid button {
+    min-height: 140px !important;
+    border-radius: 24px !important;
+    padding: 26px 28px !important;
+    font-size: 2rem !important;
+    gap: 24px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-profile-grid button span,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-profile-grid button span {
+    width: 76px !important;
+    height: 76px !important;
+    font-size: 2rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-toolbar-title,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-toolbar-title {
+    padding: 32px 16px !important;
+    gap: 24px !important;
+    border-radius: 24px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-toolbar-title span,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-toolbar-title span {
+    font-size: 2.7rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-toolbar-title strong,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-toolbar-title strong {
+    font-size: 2rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-toolbar-title small,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-toolbar-title small {
+    font-size: 1.5rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-tools-grid,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid {
+    gap: 32px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-tools-grid button,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button {
+    min-height: 284px !important;
+    border-radius: 24px !important;
+    padding: 32px 20px 28px !important;
+    gap: 18px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-tools-grid button span,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button span {
+    font-size: 4rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-tools-grid button strong,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button strong {
+    font-size: 2rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-tools-grid button small,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid button small {
+    min-height: 32px !important;
+    font-size: 1.5rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-reset,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-reset {
+    margin-top: 32px !important;
+    padding: 32px 36px !important;
+    border-radius: 18px !important;
+    font-size: 2rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-manage p,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-manage p {
+    margin: 28px 8px 16px !important;
+    font-size: 1.9rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-row,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-row {
+    gap: 20px !important;
+    margin-top: 20px !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-row button,
+.pf-a11y-panel.pf-a11y-xl .pf-a11y-row button {
+    min-height: 92px !important;
+    border-radius: 16px !important;
+    padding: 20px 24px !important;
+    font-size: 2rem !important;
+}
+
+/* XL for helper widgets too */
+html.pf-a11y-xl-widget .pf-a11y-tooltip {
+    max-width: min(720px, calc(100vw - 24px)) !important;
+    padding: 20px 24px !important;
+    border-radius: 16px !important;
+    font-size: 1.9rem !important;
+}
+
+html.pf-a11y-xl-widget .pf-a11y-reading-guide {
+    height: 10px !important;
+}
+
+/* =========================
+   2. CONTRAST MODES
+========================= */
+
+/* Invert colors */
+html.pf-a11y-invert-colors {
+    --pf-a11y-filter-contrast: invert(1) hue-rotate(180deg);
+}
+
+/* Dark contrast */
+html.pf-a11y-dark-contrast body {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget),
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) *,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget)::before,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget)::after,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) *::before,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) *::after {
+    background-color: #000000 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) a {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+    font-weight: 800 !important;
+}
+
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) input,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) textarea,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) select,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) button {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) img,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) video,
+html.pf-a11y-dark-contrast body > :not(.pf-a11y-widget) svg {
+    filter: grayscale(1) contrast(1.35) !important;
+}
+
+/* Light contrast */
+html.pf-a11y-light-contrast body {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget),
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) *,
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget)::before,
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget)::after,
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) *::before,
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) *::after {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) a {
+    color: #003b7a !important;
+    text-decoration: underline !important;
+    font-weight: 800 !important;
+}
+
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) input,
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) textarea,
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) select,
+html.pf-a11y-light-contrast body > :not(.pf-a11y-widget) button {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+}
+
+/* Apply invert/saturation filters without affecting the accessibility menu */
+html.pf-a11y-invert-colors body > :not(.pf-a11y-widget),
+html.pf-a11y-saturation-low body > :not(.pf-a11y-widget),
+html.pf-a11y-saturation-high body > :not(.pf-a11y-widget),
+html.pf-a11y-saturation-desaturated body > :not(.pf-a11y-widget) {
+    filter: var(--pf-a11y-filter-contrast) var(--pf-a11y-filter-saturation) !important;
+}
+
+/* =========================
+   3. TEXT SPACING LEVELS
+========================= */
+html.pf-a11y-text-spacing-1 body > :not(.pf-a11y-widget),
+html.pf-a11y-text-spacing-1 body > :not(.pf-a11y-widget) * {
+    letter-spacing: 0.04em !important;
+    word-spacing: 0.08em !important;
+}
+
+html.pf-a11y-text-spacing-2 body > :not(.pf-a11y-widget),
+html.pf-a11y-text-spacing-2 body > :not(.pf-a11y-widget) * {
+    letter-spacing: 0.08em !important;
+    word-spacing: 0.16em !important;
+}
+
+html.pf-a11y-text-spacing-3 body > :not(.pf-a11y-widget),
+html.pf-a11y-text-spacing-3 body > :not(.pf-a11y-widget) * {
+    letter-spacing: 0.12em !important;
+    word-spacing: 0.24em !important;
+}
+
+/* =========================
+   4. LINE HEIGHT LEVELS
+========================= */
+html.pf-a11y-line-height-1 body > :not(.pf-a11y-widget),
+html.pf-a11y-line-height-1 body > :not(.pf-a11y-widget) * {
+    line-height: 1.5 !important;
+}
+
+html.pf-a11y-line-height-2 body > :not(.pf-a11y-widget),
+html.pf-a11y-line-height-2 body > :not(.pf-a11y-widget) * {
+    line-height: 1.75 !important;
+}
+
+html.pf-a11y-line-height-3 body > :not(.pf-a11y-widget),
+html.pf-a11y-line-height-3 body > :not(.pf-a11y-widget) * {
+    line-height: 2 !important;
+}
+
+/* =========================
+   5. TEXT ALIGNMENT MODES
+========================= */
+html.pf-a11y-align-left body > :not(.pf-a11y-widget),
+html.pf-a11y-align-left body > :not(.pf-a11y-widget) * {
+    text-align: left !important;
+}
+
+html.pf-a11y-align-right body > :not(.pf-a11y-widget),
+html.pf-a11y-align-right body > :not(.pf-a11y-widget) * {
+    text-align: right !important;
+}
+
+html.pf-a11y-align-center body > :not(.pf-a11y-widget),
+html.pf-a11y-align-center body > :not(.pf-a11y-widget) * {
+    text-align: center !important;
+}
+
+html.pf-a11y-align-justify body > :not(.pf-a11y-widget),
+html.pf-a11y-align-justify body > :not(.pf-a11y-widget) * {
+    text-align: justify !important;
+}
+
+/* =========================
+   6. SATURATION MODES
+========================= */
+html.pf-a11y-saturation-low {
+    --pf-a11y-filter-saturation: saturate(35%);
+}
+
+html.pf-a11y-saturation-high {
+    --pf-a11y-filter-saturation: saturate(185%);
+}
+
+html.pf-a11y-saturation-desaturated {
+    --pf-a11y-filter-saturation: grayscale(1) saturate(0%);
+}
+
+/* Mobile safety for XL */
+@media (max-width: 768px) {
+    html.pf-a11y-xl-widget .pf-a11y-float {
+        width: 96px !important;
+        height: 96px !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-float span {
+        font-size: 50px !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-panel,
+    .pf-a11y-panel.pf-a11y-xl,
+    html.pf-a11y-xl-widget .pf-a11y-panel.pf-a11y-right,
+    .pf-a11y-panel.pf-a11y-xl.pf-a11y-right {
+        left: 8px !important;
+        right: 8px !important;
+        bottom: 126px !important;
+        width: auto !important;
+        max-height: calc(100vh - 142px) !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-tools-grid,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-tools-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    html.pf-a11y-xl-widget .pf-a11y-profile-grid,
+    .pf-a11y-panel.pf-a11y-xl .pf-a11y-profile-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
